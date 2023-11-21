@@ -6,7 +6,7 @@ class PostRepository {
 
   Future<List<PostModel>> getPosts() async {
     List<PostModel> posts = [];
-    List<Map<String, dynamic>> postsResponse = await _apiClient.get();
+    List<dynamic> postsResponse = await _apiClient.get('posts');
 
     for (var i in postsResponse) {
       posts.add(PostModel.fromJson(i));

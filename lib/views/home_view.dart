@@ -9,8 +9,15 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
         viewModelBuilder: () => HomeViewModel(),
+        onViewModelReady: (viewModel) => viewModel.getPosts(),
         builder: (context, viewModel, child) {
-          return const Scaffold();
+          return Scaffold(
+            body: ListView.builder(
+                itemCount: viewModel.post.length,
+                itemBuilder: (context, index) {
+                  return const ListTile();
+                }),
+          );
         });
   }
 }
