@@ -8,7 +8,10 @@ class HomeViewModel extends BaseViewModel {
   List<PostModel> post = [];
 
   getPosts() async {
+    setBusy(true);
+    await Future.delayed(const Duration(seconds: 2));
     post = await postRepository.getPosts();
+    setBusy(false);
     rebuildUi();
   }
 }

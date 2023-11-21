@@ -16,9 +16,17 @@ class HomeView extends StatelessWidget {
                 itemCount: viewModel.post.length,
                 itemBuilder: (context, index) {
                   final post = viewModel.post[index];
-                  return ListTile(
-                    title: Text(post.title!),
-                  );
+                  if (viewModel.isBusy) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (viewModel.post.isEmpty) {
+                    return const Center(
+                      child: Text('No Posts'),
+                    );
+                  } else {
+                    return ListTile(
+                      title: Text(post.title!),
+                    );
+                  }
                 }),
           );
         });
