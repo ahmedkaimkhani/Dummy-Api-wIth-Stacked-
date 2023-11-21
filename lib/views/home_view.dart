@@ -15,7 +15,10 @@ class HomeView extends StatelessWidget {
             body: ListView.builder(
                 itemCount: viewModel.post.length,
                 itemBuilder: (context, index) {
-                  return const ListTile();
+                  final post = viewModel.post[index];
+                  return ListTile(
+                    title: Text(post.title!),
+                  );
                 }),
           );
         });
