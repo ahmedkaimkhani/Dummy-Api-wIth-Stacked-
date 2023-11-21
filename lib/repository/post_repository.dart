@@ -1,5 +1,5 @@
 import 'package:api_with_stacked/data/api_client.dart';
-import 'package:api_with_stacked/model/post_model.dart';
+import 'package:api_with_stacked/data/model/post_model.dart';
 
 class PostRepository {
   final _apiClient = ApiClient();

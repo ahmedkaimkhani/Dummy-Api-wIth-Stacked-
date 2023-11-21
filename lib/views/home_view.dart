@@ -9,22 +9,22 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
         viewModelBuilder: () => HomeViewModel(),
-        onViewModelReady: (viewModel) => viewModel.getPosts(),
+        onViewModelReady: (viewModel) => viewModel.getUnicorns(),
         builder: (context, viewModel, child) {
           return Scaffold(
             body: ListView.builder(
-                itemCount: viewModel.post.length,
+                itemCount: viewModel.unicorn.length,
                 itemBuilder: (context, index) {
-                  final post = viewModel.post[index];
+                  final unicorn = viewModel.unicorn[index];
                   if (viewModel.isBusy) {
                     return const Center(child: CircularProgressIndicator());
-                  } else if (viewModel.post.isEmpty) {
+                  } else if (viewModel.unicorn.isEmpty) {
                     return const Center(
                       child: Text('No Posts'),
                     );
                   } else {
                     return ListTile(
-                      title: Text(post.title!),
+                      title: Text(unicorn.name!),
                     );
                   }
                 }),
